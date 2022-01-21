@@ -16,6 +16,5 @@ export default create({
   barSelectedColor: "#ffffff",
   barBg: "#1b1a1f",
 
-  brandTitle: "Rocketseat",
-  brandUrl: "https://rocketseat.com.br/",
+  brandTitle: "My Storybook Components",
 });
