@@ -1,23 +1,45 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
+import { Container } from "./style";
 
-interface IButtonsProps {
+export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * cor do background
+   * Background color
    */
   backgroundColor: string;
-
+  /**
+   * Text color
+   */
   color: string;
+  /**
+   * Disabled button
+   */
+  disabled?: boolean;
+  /**
+   * Text button
+   */
+  label: string;
+  /**
+   * Button size in em
+   */
+  width: number;
 }
 
-const style: React.CSSProperties = {
-  backgroundColor: "#7159c1",
-  color: "#fff",
-};
-
-export const Button: React.FC<IButtonsProps> = ({
-  children,
-  backgroundColor,
-  color,
+export const Button: React.FC<Props> = ({
+  label,
+  backgroundColor = "#7159c1",
+  color = "#fff",
+  width = 10,
+  ...props
 }) => {
-  return <button style={style}>{children}</button>;
+  return (
+    <Container
+      label={label}
+      {...props}
+      backgroundColor={backgroundColor}
+      color={color}
+      width={width}
+    >
+      {label || "Button"}
+    </Container>
+  );
 };
